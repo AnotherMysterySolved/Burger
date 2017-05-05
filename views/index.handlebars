@@ -1,7 +1,4 @@
-<h1>Burgers!</h1>
-
-<h2>Burgers that are not devoured!</h2>
-
+<h2>Uneaten Burgers!</h2>
 <ul>
   {{#each burgers}}
     {{#unless this.devoured}}
@@ -17,8 +14,25 @@
   {{/each}}
 </ul>
 
-<h2>Burgers that are devoured!</h2>
+<h2>Make a Burger!</h2>
+<form class="create-update-form" action="/" method="POST">
 
+  <div class="form-group">
+    <label for="bur">Burger Name:</label>
+    <input type="text" id="bur" name="name">
+    <!-- TODO: look up this -->
+  </div>
+
+  <div class="form-group">
+    <label for="slee">Status?</label><br>
+    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
+    <input type="radio" name="devoured" value="0"> Not eaten!
+  </div>
+
+  <button type="submit">Make Burger</button>
+</form>
+
+<h2>Devoured Burgers!</h2>
 <ul>
   {{#each burgers}}
     {{#if this.devoured}}
@@ -33,20 +47,3 @@
     {{/if}}
   {{/each}}
 </ul>
-
-<h2>Add a burger!</h2>
-<form class="create-update-form" action="/" method="POST">
-
-  <div class="form-group">
-    <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="slee">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Not eaten!
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
